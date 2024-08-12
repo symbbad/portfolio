@@ -1,0 +1,73 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = "포트폴리오 웹사이트"
+authors = ["symbbad <symbbad@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+keywords = ["portfolio", "django", "web"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^4.2"
+djangorestframework = "^3.14.0"
+django-cors-headers = "^4.3.1"  # CORS 지원
+Pillow = "^10.2.0"  # 이미지 처리
+psycopg = "^3.1.10"  # PostgreSQL 차세대 드라이버
+gunicorn = "^21.2.0"  # 프로덕션 서버
+whitenoise = "^6.5.0"  # 정적 파일 서빙
+django-environ = "^0.11.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+flake8 = "^6.0.0"
+mypy = "^1.3.0"
+pytest = "^7.3.1"
+django-debug-toolbar = "^4.1.0"
+django-extensions = "^3.2.3"
+pytest-django = "^4.5.2"
+pytest-cov = "^4.1.0"  # 테스트 커버리지
+pre-commit = "^3.5.0"  # Git hooks
+faker = "^22.0.0"  # 테스트 데이터 생성
+isort = "^5.12.0"  # Import 정렬
+tox = "^4.4.0"  # 테스트 자동화
+bandit = "^1.7.4"  # 코드 보안 분석
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = "E203"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "portfolio.settings"
+python_files = ["test_*.py", "*_test.py"]
+addopts = "-v --cov=. --cov-report=term-missing --disable-warnings"
