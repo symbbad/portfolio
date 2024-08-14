@@ -1,0 +1,32 @@
+# 운영 체제 파일
+.DS_Store
+Thumbs.db
+
+# 로그 파일
+*.log
+
+# 빌드 디렉토리
+/build/
+/dist/
+
+# Node.js
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Java
+*.class
+*.jar
+*.war
+
+# 환경 설정 파일
+.env
+.vscode/
+.idea/
+
+# 기타
+*.swp
+*.swo
