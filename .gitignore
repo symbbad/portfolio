@@ -26,6 +26,7 @@ __pycache__/
 .env
 .vscode/
 .idea/
+.venv
 
 # 기타
 *.swp
