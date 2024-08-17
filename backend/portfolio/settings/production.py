@@ -1,6 +1,7 @@
 from .base import *
 
 DEBUG = False
+
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["symbbad.com"])
 
 DATABASES = {
@@ -14,20 +15,9 @@ DATABASES = {
     }
 }
 
-# Security settings
+CORS_ALLOWED_ORIGINS = [
+    "https://symbbad.com",
+]
+
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-SECURE_HSTS_SECONDS = 3600
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_SSL_REDIRECT = True
-
-LOGGING['handlers']['file'] = {
-    'level': 'WARNING',
-    'class': 'logging.FileHandler',
-    'filename': r'D:\Log\Django\portfolio\logfile.log',
-    'formatter': 'verbose',
-}
-
-LOGGING['loggers']['django']['handlers'].append('file')
-LOGGING['loggers']['django']['level'] = 'WARNING'
