@@ -9,24 +9,35 @@ Thumbs.db
 /build/
 /dist/
 
-# Node.js
-node_modules/
-
-# Python
+# Python 관련
 __pycache__/
 *.py[cod]
 *.pyo
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
 
-# Java
-*.class
-*.jar
-*.war
+# 가상 환경
+.venv/
+venv/
 
 # 환경 설정 파일
 .env
+.env.local
+.env.*.local
 .vscode/
 .idea/
-.venv
+
+# Django 관련
+*.sqlite3
+media/
+staticfiles/
+
+# Poetry 관련
+poetry.lock
 
 # 기타
 *.swp
