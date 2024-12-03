@@ -25,7 +25,6 @@ INTERNAL_IPS = ["127.0.0.1"]
 # 개발 환경에서는 보안 설정 비활성화
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
-SECURE_SSL_REDIRECT = False
 
 LOGGING = {
     'version': 1,
@@ -40,5 +39,3 @@ LOGGING = {
         'level': 'DEBUG',
     },
 }
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

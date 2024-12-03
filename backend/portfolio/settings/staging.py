@@ -2,11 +2,11 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['symbbad.com']
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["symbbad.com"])
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
         "NAME": env("POSTGRES_DB"),
         "USER": env("POSTGRES_USER"),
         "PASSWORD": env("POSTGRES_PASSWORD"),
@@ -15,13 +15,9 @@ DATABASES = {
     }
 }
 
-# Security settings
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-SECURE_HSTS_SECONDS = 3600
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_SSL_REDIRECT = True
+CORS_ALLOWED_ORIGINS = [
+    "https://symbbad.com",
+]
 
-LOGGING['handlers']['console']['level'] = 'DEBUG'
-LOGGING['loggers']['django']['level'] = 'DEBUG'
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
